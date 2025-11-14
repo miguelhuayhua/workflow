@@ -43,9 +43,9 @@ jobs:
 
       # 6. Build de la imagen usando tu Dockerfile
       - name: Build Docker image
-        run: docker build -t miapp:latest .
+        run: docker build -t ghcr.io/${{github.actor}}/miapp:latest .
         working-directory: ./
 
       # 7. (Opcional) Push a Docker Hub
       - name: Push image
-        run: docker push miapp:latest
+        run: docker push ghcr.io/${{ github.actor }}/miapp:latest
