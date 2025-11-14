@@ -1,13 +1,15 @@
 services:
   app:
-    build: .
-    ports:
-      - "3000:3000"
+    build: ./app               # usa Dockerfile local
     environment:
       - MONGO_URL=mongodb://root:example@mongo:27017/test?authSource=admin
     depends_on:
       - mongo
-
+    volumes:
+      - ./app:/app             # monta el código local
+      - /app/node_modules      # para no sobreescribir node_modules del contenedor
+    ports: 
+      - "3000:3000"
   mongo:
     image: mongo:7
     restart: always

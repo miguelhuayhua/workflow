@@ -4,14 +4,14 @@ FROM node:20-alpine
 # Carpeta de trabajo
 WORKDIR /app
 
-# Copiar package.json primero (cache)
-COPY app/package*.json ./
+# Copiar package.json
+COPY package*.json ./
 
 # Instalar dependencias
 RUN npm install --production
 
-# Copiar el resto del código
-COPY app/ .
+# Copiar todo el código
+COPY . .
 
 # Exponer puerto
 EXPOSE 3000
