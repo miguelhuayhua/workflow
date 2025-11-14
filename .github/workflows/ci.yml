@@ -48,4 +48,4 @@ jobs:
 
       # 7. (Opcional) Push a Docker Hub
       - name: Push image
-      - run: docker push miapp:latest
+        run: docker push miapp:latest
